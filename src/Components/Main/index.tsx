@@ -1,88 +1,143 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { useState } from 'react';
 import './index.scss';
+import { ITag, IChannel } from '../../models';
+import { tagGroup } from '../../enums';
+import { Tags } from '../Tags';
+import { Channels } from '../Channels';
 
-export const Main = () => {
-    return (
+const TAGS: ITag[] = [
+  {
+    group: tagGroup.FRONTEND,
+    displayValue: 'CSS',
+    value: 'css',
+  },
+  {
+    group: tagGroup.FRONTEND,
+    displayValue: 'HTML',
+    value: 'html',
+  },
+  {
+    group: tagGroup.FRONTEND,
+    displayValue: 'JavaScript',
+    value: 'javascript',
+  },
+  {
+    group: tagGroup.FRONTEND,
+    displayValue: 'React',
+    value: 'react',
+  },
+  {
+    group: tagGroup.BACKEND,
+    displayValue: 'TypeScript',
+    value: 'typescript',
+  },
+  {
+    group: tagGroup.BACKEND,
+    displayValue: 'C#',
+    value: 'c#',
+  },
+  {
+    group: tagGroup.BACKEND,
+    displayValue: 'Go',
+    value: 'go',
+  },
+];
+
+const CHANNELS: IChannel[] = [
+  {
+    name: 'Просто: разработка',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'CSS',
+        value: 'css',
+      },
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'HTML',
+        value: 'html',
+      },
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'JavaScript',
+        value: 'javascript',
+      },
+    ],
+  },
+  {
+    name: 'АйТиБорода',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.BACKEND,
+        displayValue: 'C#',
+        value: 'c#',
+      },
+    ],
+  },
+  {
+    name: 'Владилен Минин',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'JavaScript',
+        value: 'javascript',
+      },
+    ],
+  },
+  {
+    name: 'IT-KAMASUTRA',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'React',
+        value: 'react',
+      },
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'JavaScript',
+        value: 'javascript',
+      },
+    ],
+  },
+  {
+    name: 'Vadim Makeev',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.FRONTEND,
+        displayValue: 'CSS',
+        value: 'css',
+      },
+    ],
+  },
+  {
+    name: 'ExtremeCode',
+    link: 'https://google.com',
+    tags: [
+      {
+        group: tagGroup.BACKEND,
+        displayValue: 'C#',
+        value: 'c#',
+      },
+    ],
+  },
+];
+
+export const Main: React.FC = () => {
+    const [activeTags, setActiveTags] = useState<string[]>([]);
+
+    return(
       <div className='Main'>
         <div className='Main__Item'>
-          <div className='TagGroups'>
-            <div className='TagGroup TagGroups__Item'>
-              <div className='TagGroup__Title'>Frontend</div>
-              <div className='TagGroup__Content'>
-                <button className={classNames('Tag', { Tag_Active: true }, 'TagGroup__ContentItem')}>JavaScript</button>
-                <button className='Tag TagGroup__ContentItem'>HTML</button>
-                <button className='Tag TagGroup__ContentItem'>CSS</button>
-              </div>
-            </div>
-            <div className='TagGroup TagGroups__Item'>
-              <div className='TagGroup__Title'>Backend</div>
-              <div className='TagGroup__Content'>
-                <button className='Tag TagGroup__ContentItem'>TypeScript</button>
-                <button className='Tag TagGroup__ContentItem'>C#</button>
-                <button className='Tag TagGroup__ContentItem'>Go</button>
-              </div>
-            </div>
-          </div>
+          <Tags tags={TAGS} activeTags={activeTags} setActiveTags={setActiveTags} />
         </div>
 
         <div className='Main__Item'>
-          <div className='Channels'>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel YouTube Channel YouTube Channel YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-            <div className='Channels__Item'>
-              <a className='Channels__Link' href='https://google.com' target='_blank'>
-                <i className='fab fa-youtube Channels__LinkIcon'></i>
-                YouTube Channel
-              </a>
-            </div>
-          </div>
+          <Channels channels={CHANNELS} activeTags={activeTags} />
         </div>
       </div>
     );

@@ -1,0 +1,57 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.TagGroups {
+    border-bottom: 1px solid $color-divider;
+    padding-bottom: 4*$base;
+
+    &__Item {
+        border-top: 1px solid $color-divider;
+        padding-top: 4*$base;
+
+        & + & {
+            margin-top: 4*$base;
+        }
+    }
+}
+
+.TagGroup {
+    display: flex;
+    align-items: center;
+
+    &__Title {
+        @include font-lg;
+        width: 36*$base;
+    }
+
+    &__Content {
+        margin-left: 8*$base;
+
+        &Item {
+            & + & {
+                margin-left: 2*$base;
+            }
+        }
+    }
+}
+
+.Tag {
+    border: 1px solid $color-divider;
+    border-radius: 6px;
+    background-color: $color-white;
+    padding: 5px 10px;
+    cursor: pointer;
+    @include font-sm;
+    font-family: 'Roboto';
+    transition: $transition-duration;
+
+    &_Active {
+        background-color: $color-red;
+        border-color: $color-black;
+        color: $color-white;
+    }
+
+    &:hover {
+        border-color: $color-black;
+    }
+}
