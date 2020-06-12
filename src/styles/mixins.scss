@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+@mixin font-xl {
+    font-size: $font-size-xl;
+    line-height: $line-height-xl;
+}
+
+@mixin font-lg {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+}
+
+@mixin font-md {
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+}
+
+@mixin font-sm {
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+}

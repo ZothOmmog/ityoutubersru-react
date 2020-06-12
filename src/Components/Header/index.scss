@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.Header {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 8*$base;
+
+    &__Item {
+        flex-basis: 50%;
+    }
+    &__Item + &__Item {
+        margin-left: 8*$base;
+    }
+
+    &__Title {
+        @include font-xl;
+        font-weight: lighter;
+        margin: 0;
+    }
+
+    &__Subtitle {
+        @include font-lg;
+        color: $color-red;
+    }
+
+    &__Description {
+        @include font-md;
+    }
+    
+    &__Link {
+        color: $color-red;
+        text-decoration: none;
+        @include font-md;
+    }
+    &__Link + &__Link {
+        margin-left: 4*$base;
+    }
+}
