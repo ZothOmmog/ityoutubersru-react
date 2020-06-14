@@ -3,14 +3,18 @@
 
 .Header {
     display: flex;
-    align-items: flex-end;
     margin-top: 8*$base;
 
     &__Item {
         flex-basis: 50%;
     }
     &__Item + &__Item {
-        margin-left: 8*$base;
+        @media(max-width: $screen-xl-max) {
+            margin-top: 8*$base;
+        }
+        @media(min-width: $screen-xl-max + 1px) {
+            margin-left: 8*$base;
+        }
     }
 
     &__Title {
@@ -35,5 +39,12 @@
     }
     &__Link + &__Link {
         margin-left: 4*$base;
+    }
+    
+    @media(min-width: $screen-xl-max + 1px) {
+        align-items: flex-end;
+    }
+    @media(max-width: $screen-xl-max) {
+        flex-direction: column;
     }
 }

@@ -1,80 +1,26 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.Main {
-    margin-top: 16*$base;
-    
-    &__Item + &__Item {
-        margin-top: 16*$base;
-    }
-}
-
-.TagGroups {
-    border-bottom: 1px solid $color-divider;
-    padding-bottom: 4*$base;
-
-    &__Item {
-        border-top: 1px solid $color-divider;
-        padding-top: 4*$base;
-
-        & + & {
-            margin-top: 4*$base;
-        }
-    }
-}
-
-.TagGroup {
-    display: flex;
-    align-items: center;
-
-    &__Title {
-        @include font-lg;
-        width: 36*$base;
-    }
-
-    &__Content {
-        margin-left: 8*$base;
-
-        &Item {
-            & + & {
-                margin-left: 2*$base;
-            }
-        }
-    }
-}
-
-.Tag {
-    border: 1px solid $color-divider;
-    border-radius: 6px;
-    background-color: $color-white;
-    padding: 5px 10px;
-    cursor: pointer;
-    @include font-sm;
-    font-family: 'Roboto';
-    transition: $transition-duration;
-
-    &_Active {
-        background-color: $color-red;
-        border-color: $color-black;
-        color: $color-white;
-    }
-
-    &:hover {
-        border-color: $color-black;
-    }
-}
-
 .Channels {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
 
     &__Item {
-        flex-basis: 25%;
         padding: 2*$base 2*$base 2*$base 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @media(min-width: $screen-lg-max + 1px) {
+            flex-basis: 25%;
+        }
+        @media(max-width: $screen-lg-max) {
+            flex-basis: 33.33%;
+        }
+        @media(max-width: $screen-xs-max) {
+            flex-basis: 50%;
+        }
     }
     
     &__Link {

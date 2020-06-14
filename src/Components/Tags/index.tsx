@@ -1,16 +1,27 @@
-import React, { SetStateAction } from 'react';
+import React, { SetStateAction, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import './index.scss';
 import { ITag } from '../../models';
 import { tagGroup } from '../../enums';
+import { BASE_URL } from '../../consts';
 
 interface IProps {
-  tags: ITag[],
   activeTags: string[],
   setActiveTags: React.Dispatch<SetStateAction<string[]>>
 }
 
-export const Tags: React.FC<IProps> = ({ tags, activeTags, setActiveTags }) => {
+export const Tags: React.FC<IProps> = ({ activeTags, setActiveTags }) => {
+  const [tags, setTags] = useState<ITag[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    (async function () {
+      const response = await fetch(`${BASE_URL}/tags`);
+      setTags(await response.json());
+      setIsLoading(false);
+    })();
+  }, []);
+
   const tagsFrontend = tags.filter(tag => tag.group === tagGroup.FRONTEND);
   const tagsBackend = tags.filter(tag => tag.group === tagGroup.BACKEND);
   
@@ -38,7 +49,7 @@ export const Tags: React.FC<IProps> = ({ tags, activeTags, setActiveTags }) => {
   const tagsFrontendForUi = getTagsForUi(tagsFrontend);
   const tagsBackendForUi = getTagsForUi(tagsBackend);
 
-  return (
+  return isLoading ? <div>Загрузка...</div> : (
     <div className='TagGroups'>
       <div className='TagGroup TagGroups__Item'>
         <div className='TagGroup__Title'>Frontend</div>

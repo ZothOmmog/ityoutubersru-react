@@ -1,16 +1,23 @@
 @import './functions.scss';
 
-$base: 4px;
+$base: rem(4px);
+
+$screen-xs-max: 320px;
+$screen-sm-max: 567px;
+$screen-md-max: 768px;
+$screen-lg-max: 992px;
+$screen-xl-max: 1245px;
 
 $font-size-sm: rem(15px);
 $font-size-md: rem(20px);
 $font-size-lg: rem(28px);
-$font-size-xl: rem(72px);
+$font-size-xl: rem(64px);
 
 $line-height-sm: rem(18px);
 $line-height-md: rem(30px);
 $line-height-lg: rem(36px);
 $line-height-xl: rem(84px);
+
 
 $color-divider: #d5d5d5;
 $color-black: #333333;

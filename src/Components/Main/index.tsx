@@ -7,40 +7,40 @@ import { Channels } from '../Channels';
 
 const TAGS: ITag[] = [
   {
-    group: tagGroup.FRONTEND,
-    displayValue: 'CSS',
-    value: 'css',
+    "group": 0,
+    "displayValue": "CSS",
+    "value": "css",
   },
   {
-    group: tagGroup.FRONTEND,
-    displayValue: 'HTML',
-    value: 'html',
+    "group": 0,
+    "displayValue": "HTML",
+    "value": "html",
   },
   {
-    group: tagGroup.FRONTEND,
-    displayValue: 'JavaScript',
-    value: 'javascript',
+    "group": 0,
+    "displayValue": "JavaScript",
+    "value": "javascript",
   },
   {
-    group: tagGroup.FRONTEND,
-    displayValue: 'React',
-    value: 'react',
+    "group": 0,
+    "displayValue": "React",
+    "value": "react",
   },
   {
-    group: tagGroup.BACKEND,
-    displayValue: 'TypeScript',
-    value: 'typescript',
+    "group": 1,
+    "displayValue": "TypeScript",
+    "value": "typescript",
   },
   {
-    group: tagGroup.BACKEND,
-    displayValue: 'C#',
-    value: 'c#',
+    "group": 1,
+    "displayValue": "C#",
+    "value": "c#",
   },
   {
-    group: tagGroup.BACKEND,
-    displayValue: 'Go',
-    value: 'go',
-  },
+    "group": 1,
+    "displayValue": "Go",
+    "value": "go",
+  }
 ];
 
 const CHANNELS: IChannel[] = [
@@ -130,14 +130,14 @@ const CHANNELS: IChannel[] = [
 export const Main: React.FC = () => {
     const [activeTags, setActiveTags] = useState<string[]>([]);
 
-    return(
+    return (
       <div className='Main'>
         <div className='Main__Item'>
-          <Tags tags={TAGS} activeTags={activeTags} setActiveTags={setActiveTags} />
+          <Tags activeTags={activeTags} setActiveTags={setActiveTags} />
         </div>
 
         <div className='Main__Item'>
-          <Channels channels={CHANNELS} activeTags={activeTags} />
+          <Channels activeTags={activeTags} />
         </div>
       </div>
     );
